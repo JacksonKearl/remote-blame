@@ -1,0 +1,81 @@
+{
+	"name": "remote-blame",
+	"displayName": "Remote Repositories: GitHub Blame",
+	"publisher": "jaaxxx",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:remote-blame.showBlame",
+		"onCommand:remote-blame.hideBlame"
+	],
+	"main": "./dist/extension.js",
+	"browser": "./dist/extension-web.js",
+	"contributes": {
+		"menus": {
+			"editor/title": [
+				{
+					"command": "remote-blame.showBlame",
+					"group": "navigation",
+					"when": "!blameShowing && remoteHub:virtualFolderProviders == 'github'"
+				},
+				{
+					"command": "remote-blame.hideBlame",
+					"group": "navigation",
+					"when": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "remote-blame.showBlame",
+				"icon": "$(eye)",
+				"title": "Show Blame",
+				"enablement": "!blameShowing && remoteHub:virtualFolderProviders == 'github'"
+			},
+			{
+				"command": "remote-blame.hideBlame",
+				"title": "Hide Blame",
+				"icon": "$(eye-closed)",
+				"enablement": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "npm run test-compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"ts-loader": "^8.0.14",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0",
+		"webpack": "^5.19.0",
+		"webpack-cli": "^4.4.0"
+	},
+	"dependencies": {
+		"@octokit/rest": "^18.12.0",
+		"isomorphic-fetch": "^3.0.0",
+		"node-fetch": "^3.1.1"
+	}
+}
