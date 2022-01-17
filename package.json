@@ -51,6 +51,18 @@
 				"icon": "$(eye-closed)",
 				"enablement": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
 			}
+		],
+		"keybindings": [
+			{
+				"command": "remote-blame.showBlame",
+				"key": "alt+g alt+b",
+				"when": "!blameShowing && remoteHub:virtualFolderProviders == 'github'"
+			},
+			{
+				"command": "remote-blame.hideBlame",
+				"key": "alt+g alt+b",
+				"when": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
+			}
 		]
 	},
 	"scripts": {
