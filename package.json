@@ -3,7 +3,8 @@
 	"displayName": "Remote Repositories: GitHub Blame",
 	"publisher": "jaaxxx",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"repository": "https://github.com/JacksonKearl/remote-blame",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -14,8 +15,14 @@
 		"onCommand:remote-blame.showBlame",
 		"onCommand:remote-blame.hideBlame"
 	],
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
 	"main": "./dist/extension.js",
 	"browser": "./dist/extension-web.js",
+	"files": ["./dist"],
 	"contributes": {
 		"menus": {
 			"editor/title": [
