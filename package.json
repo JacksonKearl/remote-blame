@@ -3,7 +3,7 @@
 	"displayName": "Git Blame for Remote GitHub",
 	"publisher": "jaaxxx",
 	"description": "See blame hovers and a heatmap for github.dev repositiries",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"repository": {"url": "https://github.com/JacksonKearl/remote-blame"},
 	"engines": {
 		"vscode": "^1.63.0"
