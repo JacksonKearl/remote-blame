@@ -1,9 +1,9 @@
 {
 	"name": "remote-blame",
-	"displayName": "Remote Repositories: GitHub Blame",
+	"displayName": "Git Blame for Remote GitHub",
 	"publisher": "jaaxxx",
-	"description": "",
-	"version": "0.0.2",
+	"description": "See blame hovers and a heatmap for github.dev repositiries",
+	"version": "0.0.4",
 	"repository": "https://github.com/JacksonKearl/remote-blame",
 	"engines": {
 		"vscode": "^1.63.0"
@@ -29,12 +29,12 @@
 				{
 					"command": "remote-blame.showBlame",
 					"group": "navigation",
-					"when": "!blameShowing && remoteHub:virtualFolderProviders == 'github'"
+					"when": "!blameShowing && remoteHub:virtualFolderProviders == 'github' && resourceScheme == 'vscode-vfs'"
 				},
 				{
 					"command": "remote-blame.hideBlame",
 					"group": "navigation",
-					"when": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
+					"when": "blameShowing && remoteHub:virtualFolderProviders == 'github' && resourceScheme == 'vscode-vfs'"
 				}
 			]
 		},
@@ -43,13 +43,13 @@
 				"command": "remote-blame.showBlame",
 				"icon": "$(eye)",
 				"title": "Show Blame",
-				"enablement": "!blameShowing && remoteHub:virtualFolderProviders == 'github'"
+				"enablement": "!blameShowing && remoteHub:virtualFolderProviders == 'github' && resourceScheme == 'vscode-vfs'"
 			},
 			{
 				"command": "remote-blame.hideBlame",
 				"title": "Hide Blame",
 				"icon": "$(eye-closed)",
-				"enablement": "blameShowing && remoteHub:virtualFolderProviders == 'github'"
+				"enablement": "blameShowing && remoteHub:virtualFolderProviders == 'github' && resourceScheme == 'vscode-vfs'"
 			}
 		],
 		"keybindings": [

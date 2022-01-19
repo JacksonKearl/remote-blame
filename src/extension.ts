@@ -201,6 +201,7 @@ export async function activate(context: vscode.ExtensionContext) {
       vscode.commands.executeCommand('setContext', 'blameShowing', true);
     }),
     vscode.commands.registerCommand('remote-blame.hideBlame', async () => {
+      dis = false;
       const e = vscode.window.activeTextEditor;
       if (e) { await showHeatForEditor(e); }
       vscode.commands.executeCommand('setContext', 'blameShowing', false);
