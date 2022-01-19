@@ -4,7 +4,7 @@
 	"publisher": "jaaxxx",
 	"description": "See blame hovers and a heatmap for github.dev repositiries",
 	"version": "0.0.4",
-	"repository": "https://github.com/JacksonKearl/remote-blame",
+	"repository": {"url": "https://github.com/JacksonKearl/remote-blame"},
 	"engines": {
 		"vscode": "^1.63.0"
 	},
